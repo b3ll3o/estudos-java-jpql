@@ -83,5 +83,10 @@ public class Movimentacao {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+	
+	@Override
+	public String toString() {
+		return "Movimentação com Id: " + id;
+	}
 
 }
