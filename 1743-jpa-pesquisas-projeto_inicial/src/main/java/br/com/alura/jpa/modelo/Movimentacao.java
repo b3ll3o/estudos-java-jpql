@@ -11,7 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+
+@NamedQuery(
+		name = "mediaDiariaMovimentacoes", 
+		query = "select new br.com.alura.jpa.modelo.MediaComData(avg(m.valor), day(m.data)) from Movimentacao m group by day(m.data)")
+
+@NamedQuery(name = "somaMovimentacoes", query = "select sum(m.valor) from Movimentacao m")
 
 @Entity
 public class Movimentacao {
